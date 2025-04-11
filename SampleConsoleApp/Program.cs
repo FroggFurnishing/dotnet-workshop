@@ -7,7 +7,7 @@ internal class Program
     private static void Main(string[] args)
     {
         Console.WriteLine("Starting Application..");
-        Beginner.Start();
-     //   IntermediateApi.Start();
+        //Beginner.Start();
+        IntermediateApi.Start();
     }
 }

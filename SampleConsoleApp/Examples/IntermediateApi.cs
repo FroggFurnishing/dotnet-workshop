@@ -31,6 +31,11 @@ namespace SampleConsoleApp.Examples
                 case 1:
                     Console.WriteLine(apiConnector.GetRandomMeal());
                     break;
+                case 3:
+                    Console.WriteLine($"Enter name of meal");
+                    var input = Console.ReadLine();
+                    Console.WriteLine(apiConnector.GetMealByName(input));
+                    break;
                 default:
                     Console.WriteLine("Not implemented yet");
                     break;
@@ -58,6 +63,12 @@ namespace SampleConsoleApp.Examples
         {
             var result = _httpClient.GetFromJsonAsync<Meals>("api/json/v1/1/random.php", CancellationToken.None).GetAwaiter().GetResult();
             return result.meals.FirstOrDefault().strMeal;
+        }
+
+        public string GetMealByName(string input)
+        {
+            var result = _httpClient.GetFromJsonAsync<Meals>("api/json/v1/1/"+input+".php", CancellationToken.None).GetAwaiter().GetResult();
+
         }
 
     }

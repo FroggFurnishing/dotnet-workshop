@@ -53,6 +53,11 @@
                     return $"--==={name}===---";
                 case 4:
                     return FormatToAlternatingCaps(name);
+                case 5:
+                    string snakeName = "";
+                    for (int i = 0; i < name.Split(" ").Length; i++)
+                        snakeName += name.Split(" ")[i] + "_";
+                    return snakeName[..^1];
 
                 default: return name;
             }
